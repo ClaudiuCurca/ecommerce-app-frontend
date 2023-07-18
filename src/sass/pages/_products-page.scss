@@ -1,0 +1,17 @@
+.products-page {
+  padding: 8rem 2rem;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  @media only screen and (max-width: 43.75em) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    width: 100%;
+  }
+}

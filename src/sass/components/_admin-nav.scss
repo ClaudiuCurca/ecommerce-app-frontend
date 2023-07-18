@@ -1,0 +1,29 @@
+.admin-nav {
+  position: fixed;
+  top: 6rem;
+  height: 3rem;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-tertiary;
+
+  &__button {
+    padding: 0 1rem;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:not(:last-child) {
+      border-right: 1px solid white;
+    }
+
+    &:hover {
+      color: $color-grey-light-text;
+    }
+  }
+}

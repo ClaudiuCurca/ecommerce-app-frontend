@@ -1,0 +1,137 @@
+.home {
+  padding: 8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  animation: AppearSlowOnScreen 0.7s;
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 0;
+  }
+
+  .home__header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 5rem;
+  }
+
+  &__categories {
+    padding: 1rem 3rem;
+    height: auto;
+    width: 20rem;
+    background-color: white;
+    box-shadow: 0 2rem 5rem rgba(black, 0.1);
+    border-radius: 15px;
+    margin-right: 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      display: none;
+    }
+
+    &.loading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title {
+      margin-bottom: 2rem;
+    }
+
+    .category-list {
+      animation: slideInFromRight100 0.7s;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      &__category:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      &__category {
+        margin-bottom: 1rem;
+        border: none;
+        cursor: pointer;
+        background-color: inherit;
+        font-size: 1.5rem;
+
+        transition: all 0.5s;
+
+        &:hover {
+          color: $color-secondary;
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+}
+
+.top-five {
+  width: 95vw;
+  max-width: 135rem;
+  // width: 135rem;
+  margin-bottom: 3rem;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    &--see-all {
+      background-color: rgba($color-secondary, 0.8);
+      color: white;
+      border-radius: 5px;
+      border: none;
+      padding: 0 1rem;
+      height: 3rem;
+      font-size: 1.7rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2rem 5rem rgba(black, 0.1);
+
+      &:hover {
+        background-color: rgba($color-secondary, 0.6);
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+
+  &__products {
+    display: flex;
+    padding: 2rem 1rem;
+
+    overflow-x: scroll; /* Enable horizontal scrolling */
+
+    &::-webkit-scrollbar {
+      height: 2px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: $color-grey-light-2;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $color-primary;
+    }
+
+    & > * {
+      flex: 0 0 auto;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,351 @@
+.header,
+.header-small {
+  position: fixed;
+  top: 0;
+
+  z-index: 100000;
+
+  height: 6rem;
+  // background-image: linear-gradient(to right, $color-primary, $color-secondary);
+  background-color: $color-secondary;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+  // position: relative;
+
+  // box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+
+  &__title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+    margin-right: -1.3rem;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 40%;
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 0 1 70%;
+    }
+
+    &__input {
+      width: 90%;
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      background-color: $color-grey-light;
+      border: none;
+      border-radius: 100px;
+      padding: 0.7rem 2rem;
+      transition: all 0.2s;
+
+      &:focus {
+        outline: none;
+        width: 100%;
+      }
+    }
+
+    button {
+      // width: 2rem;
+      // height: 2rem;
+      margin-left: -3.25rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    &__svg {
+      width: 2rem;
+      height: 2rem;
+
+      fill: $color-secondary;
+      // cursor: pointer;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > button {
+      display: inline-flex;
+      font-family: inherit;
+      font-size: inherit;
+      color: white;
+      fill: white;
+
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+      // border-radius: 10px;
+
+      &:not(:last-child) {
+        margin-right: 5rem;
+      }
+
+      transition: all 0.2s;
+      &:hover {
+        // transform: translateY(1px);
+        color: $color-grey-light-2;
+        fill: $color-grey-light-2;
+      }
+
+      #arrow-down {
+        margin-left: 5px;
+
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: inherit;
+      }
+    }
+
+    &__btn--my-account {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .user-photo {
+        height: 3rem;
+        width: 3rem;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+
+      .dropdown {
+        transform: translateX(3rem);
+      }
+    }
+
+    &__btn--cart {
+      .cart {
+        display: flex;
+        align-items: center;
+
+        position: relative;
+        margin-right: 2rem;
+
+        &__svg {
+          fill: inherit;
+          text-align: end;
+          width: 2rem;
+          height: 2rem;
+          margin-left: 0.5rem;
+        }
+
+        &__items-number {
+          font-size: 1.3rem;
+          width: 1.7rem;
+          height: 1.7rem;
+
+          background-color: red;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+
+          position: absolute;
+          top: -1rem;
+          right: -1rem;
+        }
+      }
+
+      .dropdown {
+        transform: translateX(5rem);
+
+        .cart-item {
+          height: 5rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2px;
+          font-size: 1.2rem;
+
+          &__image {
+            width: 4.5rem;
+            height: 3rem;
+            flex: 0 0 5%;
+          }
+
+          &__name {
+            flex: 0 0 35%;
+          }
+
+          &__price {
+          }
+
+          &__quantity {
+            font-weight: bold;
+            font-size: 1.3rem;
+          }
+        }
+        .cart-total {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+.header-small {
+  .navigation {
+    z-index: 100000;
+    &__checkbox {
+      display: none;
+    }
+
+    &__icon {
+      position: relative;
+      margin-top: 1.6rem;
+
+      &,
+      &::before,
+      &::after {
+        width: 3rem;
+        height: 2px;
+        background-color: white;
+        display: inline-block;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: all 0.2s;
+      }
+
+      &::before {
+        top: -0.8rem;
+      }
+      &::after {
+        top: 0.8rem;
+      }
+    }
+
+    &__checkbox:checked + .navigation__icon::before {
+      top: 0;
+    }
+
+    &__checkbox:checked + .navigation__icon {
+      background-color: transparent;
+    }
+
+    &__checkbox:checked + .navigation__icon::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + .navigation__icon::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+
+    &__side-bar {
+      background-color: white;
+
+      height: 100vh;
+      width: 25rem;
+      position: absolute;
+      z-index: 100000;
+      top: 6rem;
+      left: 0;
+      transition: all 0.2s;
+      transform: translateX(-120%);
+      box-shadow: 0 1rem 2rem rgba(black, 0.2);
+
+      &--user,
+      &--log-out,
+      &--log-in,
+      &--categories-title,
+      &--category {
+        width: 100%;
+        border: none;
+
+        height: 4rem;
+        padding: 1rem;
+        font-size: 2.4rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: inherit;
+        color: inherit;
+      }
+
+      &--user {
+        .user-photo {
+          margin-left: 1rem;
+          width: 2.2rem;
+          height: 2.2rem;
+
+          border-radius: 50%;
+        }
+      }
+
+      &--categories-title {
+        background-color: rgba($color-secondary, 1);
+        color: white;
+
+        font-size: 2.3rem;
+      }
+
+      &--category {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 2.2rem;
+
+        border-bottom: 1px solid rgba($color-grey-light-2, 1);
+
+        #arrow-right {
+          width: 1.3rem;
+          height: 1.3rem;
+        }
+      }
+    }
+  }
+
+  &__cart {
+    background-color: inherit;
+    border: none;
+    margin-right: 2rem;
+    .cart {
+      display: flex;
+      align-items: center;
+
+      position: relative;
+
+      &__svg {
+        fill: white;
+        text-align: end;
+        width: 2rem;
+        height: 2rem;
+        margin-left: 0.5rem;
+      }
+
+      &__items-number {
+        font-size: 1.3rem;
+        width: 1.7rem;
+        height: 1.7rem;
+        color: white;
+
+        background-color: red;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+      }
+    }
+  }
+}

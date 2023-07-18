@@ -1,0 +1,58 @@
+.delivery-address {
+  background-color: $color-grey-light;
+  font-size: 1.6rem;
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid $color-secondary;
+  border-radius: 5px;
+  box-shadow: 0 2rem 5rem rgba(black, 0.1);
+  line-height: 1.5;
+  height: fit-content;
+  position: relative;
+  transition: all 0.2s;
+
+  p {
+    padding: 0.5rem;
+  }
+
+  &:hover {
+    box-shadow: 0 2rem 5rem rgba(black, 0.2);
+  }
+
+  input {
+    border-radius: 5px;
+    border: none;
+    height: 2rem;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      margin-left: 0.5rem;
+      border: 2px solid $color-primary;
+    }
+  }
+
+  .delete-address,
+  .save-address {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: $color-grey-light-text;
+    font-weight: bold;
+    font-size: 2.5rem;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .delete-address {
+    &:hover {
+      color: red;
+    }
+  }
+
+  .save-address {
+    &:hover {
+      color: greenyellow;
+    }
+  }
+}

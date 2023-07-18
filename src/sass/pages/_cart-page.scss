@@ -1,0 +1,205 @@
+.cart-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 0;
+  }
+
+  .cart {
+    width: 80%;
+
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 2rem 5rem rgba(black, 0.2);
+    border-radius: 5px;
+
+    @media only screen and (max-width: $bp-large) {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      min-height: 94vh;
+      padding: 0.5rem;
+    }
+
+    &__title {
+      font-weight: 400;
+      margin-bottom: 3rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-top: 2rem;
+        text-align: center;
+      }
+    }
+
+    &__items {
+      padding: 2rem;
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.3rem;
+        padding: 0;
+      }
+
+      .cart__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        min-height: 13rem;
+
+        border-radius: 5px;
+        border: 1px solid $color-primary;
+
+        &:not(:last-child) {
+          margin-bottom: 3rem;
+
+          @media only screen and (max-width: $bp-small) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        &-image {
+          padding: 1rem;
+          width: 20rem;
+          height: 15rem;
+          border-radius: 5px;
+
+          @media only screen and (max-width: $bp-medium) {
+            width: 16rem;
+            height: 12rem;
+          }
+
+          @media only screen and (max-width: $bp-small) {
+            padding: 0;
+            margin-left: 2px;
+            width: 10rem;
+            height: 7rem;
+          }
+        }
+
+        &-name {
+          flex: 0 0 20%;
+          // display: flex;
+          // align-items: center;
+          // justify-content: center;
+
+          @media only screen and (max-width: $bp-small) {
+            flex: 0 0 15%;
+          }
+        }
+
+        &-price {
+          flex: 1;
+          flex: 0 0 10%;
+          display: flex;
+          justify-content: center;
+        }
+
+        &-count {
+          flex: 0 0 15%;
+          white-space: nowrap;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          &--minus,
+          &--plus {
+            width: 2rem;
+            height: 2rem;
+            background-color: transparent;
+            border: none;
+            font-size: 2rem;
+            background-color: rgba($color-secondary, 0.5);
+            color: white;
+            transition: all 0.2s;
+            cursor: pointer;
+
+            &:hover {
+              background-color: rgba($color-secondary, 0.7);
+            }
+
+            &:active {
+              background-color: rgba($color-secondary, 1);
+              transform: scale(1.1);
+            }
+          }
+          &--minus {
+            margin-right: 3px;
+          }
+
+          &--plus {
+            margin-left: 5px;
+          }
+        }
+
+        &-total-price {
+          flex: 0 0 15%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &-remove {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          opacity: 1;
+          transition: all 0.2s;
+          background-color: rgba(red, 0.8);
+          color: white;
+          border-radius: 5px;
+          padding: 3px;
+          cursor: pointer;
+          border: none;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+
+          @media only screen and (max-width: $bp-small) {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+
+    &__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &--total-price {
+        font-weight: 400;
+      }
+      &--go-to-checkout {
+        background-color: rgba($color-green, 0.9);
+        height: 5rem;
+        width: 20rem;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 2rem;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($color-green, 0.7);
+        }
+
+        &:active {
+          transform: translateY(2px);
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: 1.6rem;
+          height: 3rem;
+          width: 15rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,560 @@
+// the code here is duplicated bcs thre are different media queries for product-list cards
+// and for the home page cards
+
+.card {
+  height: 40rem;
+  width: 25rem;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 1rem;
+  box-shadow: 0 1rem 1rem rgba(black, 0.1);
+  transition: all 0.2s;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__header {
+    padding-bottom: 1rem;
+
+    &__image {
+      width: 100%;
+      height: 15rem;
+    }
+
+    &__title {
+      margin-top: 1.5rem;
+
+      color: $color-tertiary;
+      font-size: 1.9rem;
+    }
+  }
+
+  &__body {
+    height: 14rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__attributes {
+      display: inline;
+      color: $color-grey-dark;
+      font-size: 1.35rem;
+
+      &--attribute {
+        display: inline;
+        &:not(:last-child)::after {
+          content: "  •  ";
+        }
+
+        &-key {
+          font-weight: bold;
+        }
+      }
+    }
+
+    &__stock {
+      font-size: 1.2rem;
+      color: $color-grey-light-text;
+
+      &--out-of-stock {
+        color: red;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__price {
+        color: $color-secondary;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 2.5rem;
+      }
+
+      &__rating {
+        color: $color-grey-dark;
+        font-weight: bold;
+      }
+
+      .star {
+        color: goldenrod;
+      }
+    }
+  }
+
+  .btn-add-to-cart {
+    width: 100%;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    color: $color-grey-dark;
+    fill: $color-grey-dark;
+    height: 3rem;
+
+    border: none;
+    background-color: $color-fourth;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgba(black, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__cart-svg {
+      fill: inherit;
+      text-align: end;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-left: 0.5rem;
+    }
+
+    &--enabled {
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: rgba($color-secondary, 0.5);
+        color: white;
+        fill: white;
+      }
+
+      &:active {
+        transform: translateY(1px);
+        background-color: rgba($color-secondary, 0.7);
+        color: white;
+        fill: white;
+      }
+    }
+
+    &--disabled {
+      background-color: rgba(grey, 0.3);
+      color: rgba(black, 0.3);
+      fill: rgba(black, 0.3);
+
+      cursor: default;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 1rem 1rem rgba(black, 0.2);
+  }
+}
+
+.card-loading {
+  height: 40rem;
+  width: 25rem;
+  background-color: white;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 1rem 1rem rgba(black, 0.1);
+  position: relative;
+  z-index: -1;
+
+  &__header {
+    margin-bottom: 1rem;
+    height: 20rem;
+
+    &__loading-image {
+      width: 100%;
+      height: 15rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-grey-light-2;
+    }
+
+    &__title {
+      margin-top: 1.5rem;
+      color: $color-tertiary;
+      font-size: 2rem;
+      background-color: $color-grey-light-2;
+      width: 50%;
+    }
+  }
+
+  &__body {
+    height: 14rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__attributes {
+      display: inline;
+      color: $color-grey-dark;
+      font-size: 1.5rem;
+      background-color: $color-grey-light-2;
+      width: 100%;
+    }
+
+    &__stock {
+      font-size: 1.2rem;
+      background-color: $color-grey-light-2;
+      width: 30%;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__price {
+        color: $color-secondary;
+        background-color: $color-grey-light-2;
+        font-size: 2.5rem;
+      }
+
+      &__rating {
+        color: $color-grey-dark;
+        background-color: $color-grey-light-2;
+      }
+    }
+  }
+
+  .btn-add-to-cart {
+    width: 100%;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    color: $color-grey-dark;
+    fill: $color-grey-dark;
+    height: 3rem;
+
+    border: none;
+    background-color: $color-fourth;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgba(black, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__cart-svg {
+      fill: inherit;
+      text-align: end;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-left: 0.5rem;
+    }
+
+    &--disabled {
+      background-color: rgba(grey, 0.3);
+      color: rgba(black, 0.3);
+      fill: rgba(black, 0.3);
+
+      cursor: default;
+    }
+  }
+}
+
+.product-list {
+  .card {
+    height: 40rem;
+    width: 25rem;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 1rem;
+    box-shadow: 0 1rem 1rem rgba(black, 0.1);
+    transition: all 0.2s;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media only screen and (max-width: $bp-smallest) {
+      width: auto;
+      max-width: 100%;
+      min-width: 20rem;
+
+      box-shadow: none;
+      border-radius: 0;
+      border: 1px solid $color-grey-light;
+    }
+
+    &__header {
+      padding-bottom: 1rem;
+
+      &__image {
+        width: 100%;
+        height: 15rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+          width: 100%;
+          height: 73%;
+        }
+      }
+
+      &__title {
+        margin-top: 1.5rem;
+
+        color: $color-tertiary;
+        font-size: 1.9rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+          margin-top: 0.5rem;
+          font-size: 1.7rem;
+          height: 5rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &__body {
+      height: 14rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media only screen and (max-width: $bp-smallest) {
+        justify-content: flex-end;
+      }
+
+      &__attributes {
+        display: inline;
+        color: $color-grey-dark;
+        font-size: 1.35rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+          margin-bottom: 1rem;
+        }
+
+        &--attribute {
+          display: inline;
+          &:not(:last-child)::after {
+            content: "  •  ";
+          }
+
+          &-key {
+            font-weight: bold;
+          }
+        }
+      }
+
+      &__stock {
+        font-size: 1.2rem;
+        color: $color-grey-light-text;
+
+        &--out-of-stock {
+          color: red;
+        }
+      }
+
+      &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__price {
+          color: $color-secondary;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 2.5rem;
+        }
+
+        &__rating {
+          color: $color-grey-dark;
+          font-weight: bold;
+        }
+
+        .star {
+          color: goldenrod;
+        }
+      }
+    }
+
+    .btn-add-to-cart {
+      width: 100%;
+      display: inline-block;
+      font-family: inherit;
+      font-size: inherit;
+      color: $color-grey-dark;
+      fill: $color-grey-dark;
+      height: 3rem;
+
+      border: none;
+      background-color: $color-fourth;
+      cursor: pointer;
+      border-radius: 3px;
+      box-shadow: 0 2px 2px rgba(black, 0.1);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media only screen and (max-width: $bp-smallest) {
+        min-height: 9%;
+      }
+
+      &__cart-svg {
+        fill: inherit;
+        text-align: end;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: 0.5rem;
+      }
+
+      &--enabled {
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: rgba($color-secondary, 0.5);
+          color: white;
+          fill: white;
+        }
+
+        &:active {
+          transform: translateY(1px);
+          background-color: rgba($color-secondary, 0.7);
+          color: white;
+          fill: white;
+        }
+      }
+
+      &--disabled {
+        background-color: rgba(grey, 0.3);
+        color: rgba(black, 0.3);
+        fill: rgba(black, 0.3);
+
+        cursor: default;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 1rem 1rem rgba(black, 0.2);
+
+      @media only screen and (max-width: $bp-smallest) {
+        box-shadow: none;
+      }
+    }
+
+    @media only screen and (min-width: 43.75em) {
+      animation: slideInFromRight 0.7s ease-out;
+    }
+  }
+
+  .card-loading {
+    height: 40rem;
+    max-width: 25rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 1rem 1rem rgba(black, 0.1);
+    position: relative;
+    z-index: -1;
+
+    @media only screen and (max-width: $bp-smallest) {
+      max-width: 100%;
+      min-width: 20rem;
+      box-shadow: none;
+      border-radius: 0;
+      border: 1px solid $color-grey-light;
+    }
+
+    &__header {
+      margin-bottom: 1rem;
+      height: 20rem;
+
+      &__loading-image {
+        width: 100%;
+        height: 15rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-grey-light-2;
+      }
+
+      &__title {
+        margin-top: 1.5rem;
+        color: $color-tertiary;
+        font-size: 2rem;
+        background-color: $color-grey-light-2;
+        width: 50%;
+      }
+    }
+
+    &__body {
+      height: 14rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__attributes {
+        display: inline;
+        color: $color-grey-dark;
+        font-size: 1.5rem;
+        background-color: $color-grey-light-2;
+        width: 100%;
+      }
+
+      &__stock {
+        font-size: 1.2rem;
+        background-color: $color-grey-light-2;
+        width: 30%;
+      }
+
+      &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__price {
+          color: $color-secondary;
+          background-color: $color-grey-light-2;
+          font-size: 2.5rem;
+        }
+
+        &__rating {
+          color: $color-grey-dark;
+          background-color: $color-grey-light-2;
+        }
+      }
+    }
+
+    .btn-add-to-cart {
+      width: 100%;
+      display: inline-block;
+      font-family: inherit;
+      font-size: inherit;
+      color: $color-grey-dark;
+      fill: $color-grey-dark;
+      height: 3rem;
+
+      border: none;
+      background-color: $color-fourth;
+      cursor: pointer;
+      border-radius: 3px;
+      box-shadow: 0 2px 2px rgba(black, 0.1);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__cart-svg {
+        fill: inherit;
+        text-align: end;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: 0.5rem;
+      }
+
+      &--disabled {
+        background-color: rgba(grey, 0.3);
+        color: rgba(black, 0.3);
+        fill: rgba(black, 0.3);
+
+        cursor: default;
+      }
+    }
+  }
+}

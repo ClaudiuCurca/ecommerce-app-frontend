@@ -1,0 +1,51 @@
+.pagination {
+  display: block;
+  display: flex;
+  justify-content: center;
+
+  font-weight: bolder;
+  font-size: 1.9rem;
+  position: relative;
+  z-index: 0;
+
+  button {
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    width: 4rem;
+    height: 4rem;
+
+    margin-right: 1rem;
+
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid rgba($color-primary, 0.2);
+
+    cursor: pointer;
+    // border-radius: 10px;
+    transition: all 0.4s;
+    &:hover {
+      background-color: rgba($color-fourth, 0.5);
+    }
+  }
+
+  .go-to-previous,
+  .go-to-next {
+    background-color: rgba($color-fourth, 0.3);
+  }
+
+  .active {
+    background-color: $color-fourth;
+    pointer-events: none;
+    transform: translateY(-2px);
+  }
+
+  .dots {
+    pointer-events: none;
+  }
+
+  .invisible {
+    display: none;
+    pointer-events: none;
+  }
+}

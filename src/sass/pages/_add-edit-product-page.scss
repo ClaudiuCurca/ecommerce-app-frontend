@@ -1,0 +1,168 @@
+.add-edit-product-page {
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .product-form {
+    width: 70rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2rem 5rem rgba(black, 0.2);
+    padding: 2rem;
+    margin-bottom: 4rem;
+
+    position: relative;
+
+    .delete-product {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    &__title {
+      text-align: center;
+      color: $color-secondary;
+    }
+
+    &__cover-image,
+    &__images {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 5rem;
+      font-size: 1.7rem;
+    }
+
+    &__name {
+      //   width: 70%;
+    }
+
+    &__category {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &--select {
+        height: 3rem;
+        width: 15rem;
+        font-size: 1.8rem;
+      }
+
+      &--add-new {
+        background-color: $color-secondary;
+        border-radius: 5px;
+        box-shadow: 0 2rem 5rem rgba(black, 0.1);
+        padding: 0.5rem 2rem;
+        color: white;
+        font-size: 1.8rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: rgba($color-secondary, 0.8);
+        }
+
+        &:active {
+          transform: translateY(2px);
+        }
+      }
+    }
+
+    &__attributes {
+      border: 1px solid $color-primary;
+      padding: 2rem;
+      width: 50rem;
+
+      &--title {
+        margin-bottom: 2rem;
+        color: $color-primary;
+      }
+
+      &--attribute {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: AppearSlowOnScreen 0.2s;
+
+        &-delete {
+          margin-left: 2rem;
+          font-size: 3rem;
+          border: none;
+          background-color: transparent;
+          transition: all 0.2s;
+          cursor: pointer;
+
+          &:hover {
+            color: red;
+          }
+        }
+      }
+
+      &--add-attribute {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid black;
+        padding-top: 1rem;
+
+        &-add-button {
+          margin-left: 2rem;
+          background-color: $color-secondary;
+          border-radius: 5px;
+          box-shadow: 0 2rem 5rem rgba(black, 0.1);
+          padding: 0.5rem 2rem;
+          color: white;
+          font-size: 1.5rem;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background-color: rgba($color-secondary, 0.8);
+          }
+
+          &:active {
+            transform: translateY(2px);
+          }
+        }
+      }
+    }
+
+    &__price-and-count {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      & > * {
+        width: 40%;
+      }
+    }
+
+    &__add-new-product {
+      width: 100%;
+      background-color: $color-green;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 2rem;
+      height: 4rem;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: rgba($color-green, 0.8);
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+}

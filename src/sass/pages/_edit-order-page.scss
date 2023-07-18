@@ -1,0 +1,12 @@
+.edit-order-page {
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    color: $color-secondary;
+    margin-bottom: 4rem;
+  }
+}

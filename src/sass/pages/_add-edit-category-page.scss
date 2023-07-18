@@ -1,0 +1,172 @@
+.add-edit-category-page {
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    color: $color-secondary;
+    margin-bottom: 4rem;
+  }
+
+  .category-form {
+    width: 50rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2rem 5rem rgba(black, 0.2);
+    padding: 2rem;
+
+    position: relative;
+
+    .delete-category {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    &__attributes {
+      width: 40rem;
+      border: 1px solid $color-primary;
+      padding: 1rem;
+
+      &--title {
+        color: $color-secondary;
+        margin-bottom: 2rem;
+      }
+
+      &--attribute {
+        animation: AppearSlowOnScreen 0.2s;
+        &-name {
+          color: $color-secondary;
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+
+          &:hover .delete-key-button {
+            opacity: 1;
+          }
+          .delete-key-button {
+            opacity: 0;
+            background-color: transparent;
+            margin-left: 1rem;
+            font-size: 2.3rem;
+            border: none;
+            transition: all 0.2s;
+            cursor: pointer;
+
+            &:hover {
+              color: red;
+            }
+          }
+        }
+
+        &-value {
+          margin-bottom: 0.5rem;
+          font-weight: bold;
+          animation: AppearSlowOnScreen 0.2s;
+
+          &:hover .delete-value-button {
+            opacity: 1;
+          }
+
+          .delete-value-button {
+            opacity: 0;
+            background-color: transparent;
+            margin-left: 1rem;
+            font-size: 2rem;
+            border: none;
+            transition: all 0.2s;
+            cursor: pointer;
+
+            &:hover {
+              color: red;
+            }
+          }
+        }
+
+        &-add-value {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30rem;
+
+          .add-value-button {
+            margin-left: 2rem;
+            background-color: $color-secondary;
+            border-radius: 5px;
+            box-shadow: 0 2rem 5rem rgba(black, 0.1);
+            padding: 0.3rem 1.5rem;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+              background-color: rgba($color-secondary, 0.8);
+            }
+
+            &:active {
+              transform: translateY(2px);
+            }
+          }
+        }
+      }
+
+      &--add-key {
+        // width: 60%;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid black;
+        padding-top: 1rem;
+
+        .add-key-button {
+          margin-left: 2rem;
+          background-color: $color-secondary;
+          border-radius: 5px;
+          box-shadow: 0 2rem 5rem rgba(black, 0.1);
+          padding: 0.5rem 2rem;
+          color: white;
+          font-size: 1.5rem;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background-color: rgba($color-secondary, 0.8);
+          }
+
+          &:active {
+            transform: translateY(2px);
+          }
+        }
+      }
+    }
+
+    &__button {
+      width: 100%;
+      background-color: $color-green;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 2rem;
+      height: 4rem;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: rgba($color-green, 0.8);
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+}

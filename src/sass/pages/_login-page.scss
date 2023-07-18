@@ -1,0 +1,164 @@
+.login-register-page {
+  height: 85rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    color: $color-secondary;
+    justify-self: start;
+    margin-bottom: 3rem;
+  }
+
+  &__form {
+    background-color: white;
+    border-radius: 15px;
+    width: 50rem;
+    height: 35rem;
+    padding: 0 5rem;
+
+    &-register {
+      height: 53rem;
+    }
+
+    &-change-password {
+      height: 45rem;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2rem 5rem rgba(black, 0.1);
+
+    position: relative;
+
+    .alert {
+      position: absolute;
+      bottom: 3%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-red-error;
+      width: 75%;
+      height: 13%;
+      transition: all 0.2s;
+      user-select: none;
+      padding: 1rem;
+
+      &--error {
+        border: 2px solid red;
+      }
+
+      &--success {
+        background-color: rgba(green, 0.5);
+        border: 2px solid green;
+      }
+    }
+
+    // &--email,
+    // &--password,
+    // &--name,
+    // &--password-confirm {
+    //   display: flex;
+    //   flex-direction: column;
+    //   width: 75%;
+    //   margin-bottom: 2.5rem;
+    //   transition: all 0.7s;
+
+    //   &.error {
+    //     .form-input {
+    //       border: 1px solid red;
+    //     }
+
+    //     .form-label {
+    //       color: red;
+    //     }
+
+    //     .form-error {
+    //       opacity: 1;
+    //     }
+    //   }
+    // }
+
+    &--button {
+      width: 50%;
+      height: 3.5rem;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: rgba($color-secondary, 0.9);
+      color: white;
+      transition: all 0.2s;
+      box-shadow: 0 2rem 5rem rgba(black, 0.1);
+      font-size: 1.8rem;
+
+      &:hover {
+        background-color: rgba($color-secondary, 0.7);
+      }
+
+      &:active {
+        background-color: rgba($color-secondary, 0.7);
+        box-shadow: 0 2rem 5rem rgba(black, 0.15);
+        transform: translateY(2px);
+      }
+    }
+
+    // .form-label {
+    //   margin-bottom: 0.5rem;
+    // }
+
+    // .form-input {
+    //   outline: none;
+    //   border: 1px solid $color-primary;
+    //   border-radius: 3px;
+    //   height: 3rem;
+    //   font-size: 1.7rem;
+    //   box-shadow: 0 2rem 5rem rgba(black, 0.1);
+
+    //   transition: all 0.2s;
+
+    //   &:focus {
+    //     transform: scale(1.01);
+    //     box-shadow: 0 2rem 5rem rgba(black, 0.15);
+    //   }
+    // }
+
+    // .form-error {
+    //   font-style: inherit;
+    //   font-weight: bold;
+    //   font-size: 1.4rem;
+    //   color: red;
+    //   opacity: 0;
+    //   transition: all 0.7s;
+    // }
+  }
+
+  &--go-to-register {
+    font-size: 1.7rem;
+    margin-top: 1.2rem;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.15);
+      color: $color-tertiary;
+    }
+  }
+
+  &--go-to-forgotPassword {
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      font-size: 1.4rem;
+      color: $color-tertiary;
+    }
+  }
+}

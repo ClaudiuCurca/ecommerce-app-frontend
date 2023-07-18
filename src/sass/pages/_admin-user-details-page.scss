@@ -1,0 +1,58 @@
+.user-details-page {
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .user {
+    background-color: white;
+    padding: 2rem;
+    width: 100rem;
+
+    box-shadow: 0 2rem 5rem rgba(black, 0.2);
+
+    position: relative;
+
+    .delete-user {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      &--photo {
+        width: 16rem;
+        height: 16rem;
+        border-radius: 50%;
+        background-color: $color-grey-light-2;
+        overflow: hidden;
+        object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: all 0.4s;
+
+        &-photo {
+          width: 20rem;
+          height: 16rem;
+          transition: all 0.4s;
+        }
+      }
+
+      &--name {
+        margin-left: 2rem;
+      }
+    }
+  }
+}

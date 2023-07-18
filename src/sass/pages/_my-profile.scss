@@ -1,0 +1,434 @@
+.my-profile {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 8rem 2rem;
+  animation: AppearSlowOnScreen 0.5s;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  input {
+    height: 3rem;
+    border: 1px solid $color-primary;
+    border-radius: 5px;
+    background-color: $color-grey-light;
+    transition: all 0.2s;
+
+    &.error-input {
+      border: 1px solid red;
+    }
+
+    &:focus {
+      outline: none;
+      transform: scale(1.05);
+    }
+  }
+
+  .error-under-input {
+    display: block;
+    color: red;
+  }
+
+  &__nav {
+    background-color: white;
+    border-radius: 5px;
+
+    box-shadow: 0 1rem 1rem rgba(black, 0.1);
+    margin-right: 5rem;
+    width: 20rem;
+    height: 15rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    transition: all 0.2s;
+
+    @media only screen and (max-width: $bp-medium) {
+      flex-direction: row;
+      height: 5rem;
+      width: 100%;
+      margin-right: 0;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(black, 0.2);
+
+      .dividing-line {
+        display: none;
+      }
+    }
+
+    &--button {
+      border: none;
+      height: 3rem;
+      width: 100%;
+      font-size: 1.8rem;
+      background-color: transparent;
+      transition: all 0.2s;
+      border-radius: 5px;
+      cursor: pointer;
+      color: inherit;
+
+      &:hover {
+        background-color: rgba($color-grey-light, 0.7);
+      }
+
+      &:active {
+        background-color: $color-grey-light;
+      }
+    }
+
+    .selected {
+      background-color: $color-secondary;
+      color: white;
+    }
+  }
+
+  &__profile,
+  &__reviews,
+  &__orders {
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1rem 1rem rgba(black, 0.1);
+    padding: 2rem;
+    width: 60%;
+    height: fit-content;
+    animation: AppearSlowOnScreen 0.7s;
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 100%;
+      min-height: 90vh;
+      border-radius: 0;
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /// profile
+
+  &__profile {
+    &--header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+
+      &-photo {
+        position: relative;
+
+        width: 16rem;
+        height: 16rem;
+        border-radius: 50%;
+        background-color: transparent;
+        overflow: hidden;
+        object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: all 0.4s;
+        cursor: pointer;
+
+        &:hover &-change {
+          opacity: 1;
+        }
+
+        &:hover .my-profile__profile--header-photo-photo {
+          -webkit-filter: blur(10px);
+          filter: blur(10px);
+        }
+
+        &-photo {
+          width: 20rem;
+          height: 16rem;
+          transition: all 0.4s;
+        }
+
+        &-change {
+          color: white;
+          position: absolute;
+          margin: auto;
+          pointer-events: none;
+          opacity: 0;
+          transition: all 0.4s;
+        }
+
+        #user-photo-input {
+          position: absolute;
+          z-index: 100000;
+          height: 100%;
+          opacity: 0;
+        }
+
+        animation: slideInFromRight100 0.7s ease-in-out;
+      }
+
+      &-username {
+        font-weight: bold;
+        margin-left: 5rem;
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: slideInFromRight100 0.7s ease-in-out;
+      }
+
+      &-edit-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all 0.3s;
+        cursor: pointer;
+        height: 4rem;
+        width: 4rem;
+        z-index: 20;
+        animation: AppearSlowOnScreen 1s ease-in;
+
+        &:hover {
+          fill: $color-secondary;
+        }
+
+        &.edit-mode-active {
+          transform: translateX(-10rem);
+        }
+      }
+
+      &-save-edit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 4rem;
+        width: 9.5rem;
+        font-size: 1.4rem;
+        transition: all 0.3s;
+        opacity: 0;
+        // display: none;
+        pointer-events: none;
+        z-index: 2;
+        background-color: $color-green;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2rem 2rem rgba(black, 0.1);
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+          background-color: rgba($color-green, 0.9);
+        }
+
+        &:active {
+          background-color: rgba($color-green, 0.8);
+
+          box-shadow: 0 1.5rem 1rem rgba(black, 0.1);
+          transform: translateY(2px);
+        }
+
+        &.edit-mode-active {
+          pointer-events: all;
+          opacity: 1;
+        }
+      }
+
+      &-error {
+        background-color: $color-red-error;
+        border: 1px solid red;
+        border-radius: 5px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        height: 6rem;
+        width: 25%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        pointer-events: none;
+
+        &.error-active {
+          opacity: 1;
+        }
+      }
+
+      &-change-password {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        animation: AppearSlowOnScreen 1s ease-in;
+
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+
+    &--body {
+      font-size: 2rem;
+
+      @media query and (max-width: $bp-medium) {
+        animation: none;
+      }
+
+      &-title {
+        color: $color-secondary;
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 10rem;
+        align-items: flex-start;
+        margin-bottom: 4rem;
+      }
+
+      &-addresses {
+        display: grid;
+        gap: 5rem;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 45rem));
+      }
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /// my reviews
+
+  &__reviews {
+    &-review:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    &-review {
+      padding: 1rem;
+
+      border-radius: 5px;
+      border: 1px solid $color-primary;
+      box-shadow: 0 2rem 5rem rgba(black, 0.1);
+
+      position: relative;
+
+      &:hover &-edit {
+        opacity: 1;
+      }
+
+      &-edit {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        fill: $color-grey-light-text;
+        opacity: 0;
+        transition: all 0.2s;
+
+        & > * {
+          width: 2.3rem;
+          height: 2.3rem;
+          cursor: pointer;
+          &:hover {
+            fill: black;
+          }
+        }
+      }
+
+      &-product-title {
+        font-size: 2rem;
+        font-weight: bold;
+
+        width: fit-content;
+        cursor: pointer;
+      }
+
+      &-rating {
+        font-size: 2rem;
+      }
+
+      &-review {
+        font-size: 1.5rem;
+      }
+
+      &-likes {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        font-size: 1.8rem;
+
+        &-svg {
+          height: 1.8rem;
+          width: 1.8rem;
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /// my orders
+
+  &__orders {
+    &--order {
+      border: 1px solid $color-primary;
+      padding: 1rem;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0 2rem 5rem rgba(black, 0.05);
+      position: relative;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+
+      &-id {
+        font-size: 2.3rem;
+        color: $color-secondary;
+      }
+
+      &-status {
+        margin-bottom: 3rem;
+      }
+
+      &-delivery-location {
+        // width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      &-phone-number {
+        margin-bottom: 3rem;
+      }
+
+      &-product {
+        margin-bottom: 3rem;
+      }
+
+      &-created-at {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        @media only screen and (max-width: $bp-small) {
+          position: absolute;
+          top: 5rem;
+          right: 1rem;
+        }
+      }
+
+      &-total-price {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+  }
+}

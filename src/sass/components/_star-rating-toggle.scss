@@ -1,0 +1,56 @@
+.stars-rating-toggle {
+  fill: white;
+  transform: rotate(180deg);
+
+  & > * {
+    width: 2.5rem;
+    height: 2.5rem;
+    stroke: black;
+    transform: rotate(37deg);
+    cursor: pointer;
+
+    &.filled {
+      fill: goldenrod;
+    }
+  }
+
+  &:hover {
+    & > * {
+      fill: white;
+    }
+  }
+
+  &__star-1:hover {
+    fill: goldenrod;
+  }
+
+  &__star-2:hover ~ &__star-1,
+  &__star-2:hover {
+    fill: goldenrod;
+  }
+
+  &__star-3:hover ~ &__star-1,
+  &__star-3:hover ~ &__star-2,
+  &__star-3:hover {
+    fill: goldenrod;
+  }
+
+  &__star-4:hover ~ &__star-1,
+  &__star-4:hover ~ &__star-2,
+  &__star-4:hover ~ &__star-3,
+  &__star-4:hover {
+    fill: goldenrod;
+  }
+
+  &__star-5:hover ~ &__star-1,
+  &__star-5:hover ~ &__star-2,
+  &__star-5:hover ~ &__star-3,
+  &__star-5:hover ~ &__star-4,
+  &__star-5:hover {
+    fill: goldenrod;
+  }
+}
+
+.star-gold {
+  color: goldenrod;
+}

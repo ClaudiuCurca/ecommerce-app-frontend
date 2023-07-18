@@ -1,0 +1,122 @@
+.admin-items-page {
+  // padding: 8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .items {
+    width: 100%;
+
+    border-radius: 5px;
+    padding: 2rem;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &--title {
+        display: inline-block;
+      }
+
+      &--edit-item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2rem;
+        width: 40%;
+
+        &-button {
+          color: white;
+          width: 15rem;
+          border: none;
+          background-color: $color-secondary;
+          padding: 1rem;
+          font-size: 1.5rem;
+          display: inline-block;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.2s;
+          margin-left: 1rem;
+
+          &:hover {
+            background-color: rgba($color-secondary, 0.8);
+          }
+
+          &:active {
+            transform: translateY(2px);
+          }
+        }
+      }
+
+      &--add-new-button {
+        color: white;
+        border: none;
+        background-color: $color-green;
+        padding: 1rem;
+        font-size: 1.8rem;
+        display: inline-block;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: rgba($color-green, 0.8);
+        }
+
+        &:active {
+          transform: translateY(2px);
+        }
+      }
+    }
+
+    &__item-list {
+      &--header,
+      &--item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+
+        & > * {
+          flex: 1;
+          text-align: center;
+        }
+      }
+
+      &--header {
+        & > * {
+          border: none;
+          background-color: transparent;
+          font-size: 2rem;
+          font-weight: bold;
+          color: inherit;
+        }
+
+        .arrow {
+          margin-left: 2px;
+          width: 1.3rem;
+          height: 1.3rem;
+          opacity: 0;
+          transition: all 0.2s;
+          pointer-events: none;
+        }
+      }
+
+      &--item {
+        text-align: left;
+        height: 5rem;
+
+        background-color: white;
+
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 2rem 5rem rgba(black, 0.1);
+
+        border-radius: 5px;
+
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
