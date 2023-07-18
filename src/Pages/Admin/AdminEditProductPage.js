@@ -24,7 +24,9 @@ function AdminEditProductPage() {
   }, []);
 
   if (!product) {
-    return <div></div>;
+    return (
+      <h2 className="flex-center mt-8">Product with this id doesn't exist</h2>
+    );
   }
 
   return <AdminAddProductPage product={product} />;

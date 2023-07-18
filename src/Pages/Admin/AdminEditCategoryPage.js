@@ -23,8 +23,12 @@ function AdminEditCategoryPage() {
     getCategory();
   }, []);
 
-  if (category?.length < 1) {
-    return <div></div>;
+  if (category?.length < 1 || category === undefined) {
+    return (
+      <h2 className="flex-center mt-8">
+        Category with this name doesn't exist
+      </h2>
+    );
   }
 
   return <AdminAddCategoryPage category={category} />;

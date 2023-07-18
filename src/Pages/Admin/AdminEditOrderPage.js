@@ -131,7 +131,9 @@ function AdminEditOrderPage() {
   };
 
   if (!order) {
-    return <div></div>;
+    return (
+      <h2 className="flex-center mt-8">Order with this id doesn't exist</h2>
+    );
   }
 
   let modalEditAddres = <></>;

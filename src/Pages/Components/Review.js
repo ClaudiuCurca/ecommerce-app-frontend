@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import StarsRating from "./StarsRating";
 import { ReactComponent as ThumbUpFilled } from "./../../img/svg/thumb-up-filled.svg";
 import { ReactComponent as ThumbUpEmpty } from "./../../img/svg/thumb-up.svg";
+import { ReactComponent as DefaultUser } from "./../../img/svg/user.svg";
 import axiosInstance from "./../../Api/axiosConfig";
 import { API_URL } from "../../config";
 
@@ -41,11 +42,15 @@ function Review({ review, userInfo }) {
   return (
     <div className="review">
       <div className="review__user">
-        <img
-          className="review__user--photo"
-          src={review.user.photo}
-          alt="not found"
-        ></img>
+        {review.user.photo ? (
+          <img
+            className="review__user--photo"
+            src={review.user.photo}
+            alt="not found"
+          ></img>
+        ) : (
+          <DefaultUser></DefaultUser>
+        )}
         <div className="review__user--name">{review.user.name} </div>
         <div className="review__user--date">
           {new Date(review.createdAt).toLocaleDateString()}{" "}

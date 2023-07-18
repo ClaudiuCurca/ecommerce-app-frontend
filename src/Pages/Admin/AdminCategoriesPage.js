@@ -11,6 +11,7 @@ function AdminCategoriesPage() {
     page: undefined,
     sort: undefined,
   });
+  const [categoryToUpdate, setCategoryToUpdate] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,12 +27,22 @@ function AdminCategoriesPage() {
       <div className="items">
         <div className="items__header mb-4">
           <h1 className="items__header--title">Categories</h1>
-          <div className="items__header--edit-item">
-            <Input placeholder={"Category ID"}></Input>
-            <button className="items__header--edit-item-button">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="items__header--edit-item"
+          >
+            <Input
+              placeholder={"Category name"}
+              value={categoryToUpdate}
+              onChange={(e) => setCategoryToUpdate(e.target.value)}
+            ></Input>
+            <button
+              className="items__header--edit-item-button"
+              onClick={() => navigate(`/admin/categories/${categoryToUpdate}`)}
+            >
               Edit category
             </button>
-          </div>
+          </form>
           <button
             className="items__header--add-new-button"
             onClick={() => navigate("/admin/categories/add-category")}

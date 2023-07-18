@@ -75,7 +75,9 @@ function AdminUserDetailsPage() {
   };
 
   if (!user) {
-    return <div></div>;
+    return (
+      <h2 className="flex-center mt-8">User with this id doesn't exist</h2>
+    );
   }
 
   let reviews = <div>User has no reviews</div>;
