@@ -6,7 +6,7 @@ Welcome to the E-Commerce Frontend repository! This is my best work so far and i
 
 * **Custom Reusable Components:** I've tried to create as many reusable components as I could, enhancing code organization and modularity. From product cards, custom pagination, a price range slider, to interactive form fields that change when they have an error, these components streamline development and ensure consistency throughout the application. All built with responsiveness in mind, so they would look good on any screen size.
 
-* **Admin Pages:** The admin pages provide straightforward navigation and intuitive sorting options for users, enabling them to sort users, categories, products, and orders based on various criteria. Forms to add or edit 
+* **Admin Pages:** The admin pages provide straightforward navigation and intuitive sorting options for users, enabling them to sort users, categories, products, and orders based on various criteria. Forms to add or edit the items and delete funtionality. 
 
 ## Main Technologies Used
 
