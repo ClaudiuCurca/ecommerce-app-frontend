@@ -26,6 +26,7 @@ function HeaderSmall({
     const getCategoryNames = async () => {
       try {
         const fetchedCategoryNames = await fetchCategoryNames();
+
         setCategoryNames(fetchedCategoryNames.data);
       } catch (error) {
         throw new Error(error);
